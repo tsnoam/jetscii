@@ -142,7 +142,6 @@
 //! | <code>s.find("xyzzy")</code>                     | 5391 MB/s      |
 
 #[cfg(test)]
-#[macro_use]
 extern crate lazy_static;
 #[cfg(test)]
 extern crate memmap;
