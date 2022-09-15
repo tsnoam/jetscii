@@ -46,4 +46,23 @@ Check out [the documentation][docs] for information about feature flags and benc
 5. Commit your changes (`git commit -am 'Add some feature'`)
 6. Ensure tests pass.
 7. Push to the branch (`git push origin my-new-feature`)
-8. Create a new Pull Request
+8. Run benchmarks.
+9. Create a new Pull Request
+
+### Running benchmarks
+1. Make a baseline for the benchmark (without your changes):
+```shell
+cargo bench --all -- --save-baseline baseline
+```
+2. After applying your code changes, run the benchmarks again:
+```shell
+cargo bench --all -- --save-baseline after
+```
+3. Install critcmp from this friendly fork:
+```shell
+cargo install --git https://github.com/dovreshef/critcmp
+```
+4. Compare the results:
+```shell
+critcmp baseline after
+```
